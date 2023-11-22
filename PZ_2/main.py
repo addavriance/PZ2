@@ -14,8 +14,6 @@ while not (len(str(num)) == 3 and str(num).isnumeric()):
         print("Вы ввели не трехзначное число.")
     elif num.count(".") == 1 and num.replace(".", "").isnumeric():  # Если в введеной строке есть всего одна точка и строка без нее состоит полностью из цифр
         print("Вы ввели не целое число.")
-    elif num[0] == "-" and num.count("-") == 1 and num.replace("-", "").isnumeric():
-        print("Вы ввели отрицательное число.")
     elif not num.isnumeric():  # Если введеная строка не состоит из цифр
         print("Вы ввели не число.")
     else:
