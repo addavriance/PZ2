@@ -7,19 +7,16 @@
 
 
 def ShiftLeft3(A, B, C):
-    temp = A
-    A = C
-    C = B
-    B = temp
+    A, B, C = B, C, A
     return A, B, C
 
 
-A1, B1, C1 = 1, 2, 3
+A1, B1, C1 = (float(input("Введите число A1: ")), float(input("Введите число B1: ")), float(input("Введите число C1: ")))
 print("Набор чисел 1 до сдвига:", A1, B1, C1)
 A1, B1, C1 = ShiftLeft3(A1, B1, C1)
 print("Набор чисел 1 после сдвига:", A1, B1, C1)
 
-A2, B2, C2 = 4, 5, 6
+A2, B2, C2 = (float(input("Введите число A2: ")), float(input("Введите число B2: ")), float(input("Введите число C2: ")))
 print("Набор чисел 2 до сдвига:", A2, B2, C2)
 A2, B2, C2 = ShiftLeft3(A2, B2, C2)
 print("Набор чисел 2 после сдвига:", A2, B2, C2)

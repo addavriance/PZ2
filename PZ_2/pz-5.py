@@ -15,6 +15,6 @@ def find_steps_to_zero(num):
     return steps
 
 
-numb = int(input("Enter a number: "))
+numb = int(input("Введите число: "))
 
 print(find_steps_to_zero(numb))
