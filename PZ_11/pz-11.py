@@ -21,6 +21,6 @@ f"""
 Элементы до n-1 умножены на элемент n: {[arr[i]*arr[i+1] for i in range(n-1)]}
 """
 
-with open("./assets/processed.txt", "w+") as f:
+with open("../assets/processed.txt", "w+") as f:
     f.write(data)
     print(f"Результат записи в файл: \n {data}")
