@@ -5,28 +5,14 @@
 Вывести новые значения переменных А и В.
 """
 
-# a = int(input("Введите целое число 1: "))
-# b = int(input("Введите целое число 2: "))
-#
-# if a != b:
-#     a = sum([a, b])
-#     b = a
-# else:
-#     a = 0
-#     b = 0
-#
-# print(a, b)
+a = int(input("Введите целое число 1: "))
+b = int(input("Введите целое число 2: "))
 
-n = int(input("N: "))
-num = 1
-char = -1
-variable = 0
-num_sum = 0
+if a != b:
+    a = sum([a, b])
+    b = a
+else:
+    a = 0
+    b = 0
 
-for i in range(n):
-    num += .1
-    char = -char
-    variable = round(num * char, 10)
-    num_sum += variable
-
-print(round(num_sum, 5))
+print(a, b)

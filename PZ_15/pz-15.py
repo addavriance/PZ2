@@ -9,9 +9,11 @@
 
 import sqlite3
 
+db_path = '../assets/transport.db'
+
 
 def create_table():
-    conn = sqlite3.connect('transport.db')
+    conn = sqlite3.connect(db_path)
     try:
         cursor = conn.cursor()
 
@@ -31,7 +33,7 @@ def create_table():
 
 
 def insert_data(info):
-    conn = sqlite3.connect('transport.db')
+    conn = sqlite3.connect(db_path)
     try:
         data_view = "\n".join(str(i) for i in info)
 
@@ -46,7 +48,7 @@ def insert_data(info):
 
 
 def display_all():
-    conn = sqlite3.connect('transport.db')
+    conn = sqlite3.connect(db_path)
     try:
         cursor = conn.cursor()
         cursor.execute('''SELECT * FROM Transport''')
@@ -60,7 +62,7 @@ def display_all():
 
 
 def search_by_driver(driver):
-    conn = sqlite3.connect('transport.db')
+    conn = sqlite3.connect(db_path)
     try:
         cursor = conn.cursor()
         cursor.execute('''SELECT * FROM Transport WHERE driver_lastname=?''', (driver,))
@@ -74,7 +76,7 @@ def search_by_driver(driver):
 
 
 def search_by_weight(weight, op="="):
-    conn = sqlite3.connect('transport.db')
+    conn = sqlite3.connect(db_path)
     try:
         cursor = conn.cursor()
         cursor.execute(f'''SELECT * FROM Transport WHERE cargo_weight{op}?''', (weight,))
@@ -88,7 +90,7 @@ def search_by_weight(weight, op="="):
 
 
 def delete_by_route(route):
-    conn = sqlite3.connect('transport.db')
+    conn = sqlite3.connect(db_path)
     try:
         cursor = conn.cursor()
         cursor.execute('''DELETE FROM Transport WHERE route=?''', (route,))
@@ -101,7 +103,7 @@ def delete_by_route(route):
 
 
 def update_weight_for_route(route, new_weight):
-    conn = sqlite3.connect('transport.db')
+    conn = sqlite3.connect(db_path)
     try:
         cursor = conn.cursor()
 

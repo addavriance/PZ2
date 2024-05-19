@@ -6,7 +6,7 @@
 
 import re
 
-with open("./assets/pazzl.html") as f:
+with open("../assets/pazzl.html") as f:
     text = f.read()
     img_tags = re.findall(r"<img[^>]*>", text)
     print(*img_tags)

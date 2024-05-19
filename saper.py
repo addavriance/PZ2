@@ -1,8 +1,8 @@
 import sqlite3 as sq
 
-from PZ_2.assets.users import info
+from assets.users import info
 
-with sq.connect ('./assets/saper.db') as con:
+with sq.connect ('assets/saper.db') as con:
     cur = con.cursor()
 
     cur.execute("DROP TABLE IF EXISTS users")
@@ -18,7 +18,7 @@ with sq.connect ('./assets/saper.db') as con:
     cur.executemany("insert into users values (?, ?, ?, ?, ?)", info)
 
 
-with sq.connect('./assets/saper.db') as con:
+with sq.connect('assets/saper.db') as con:
     cur = con.cursor()
     cur.execute("SELECT * FROM users WHERE score < 1000 ORDER BY old DESC")
     result = cur.fetchall()
