@@ -15,6 +15,7 @@ def find_steps_to_zero(num):
     return steps
 
 
-numb = int(input("Введите число: "))
+if __name__ == "__main__":
+    numb = int(input("Введите число: "))
 
-print(find_steps_to_zero(numb))
+    print(find_steps_to_zero(numb))
