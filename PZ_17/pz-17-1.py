@@ -1,12 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
 
-import PZ_5 as pz
+import PZ_5 as PZ
+
 
 def task_5(tab_control, history_text):
     def calculate_steps():
         num = int(entry_num.get())
-        steps = pz.find_steps_to_zero(num)
+        steps = PZ.find_steps_to_zero(num)
         result = f"Количество шагов до нуля числа {num}: {steps}"
         result_label.config(text=result)
         update_history("[5] " + result, history_text)
@@ -36,8 +37,8 @@ def task_5_1(tab_control, history_text):
         B2 = float(B2_entry.get())
         C2 = float(C2_entry.get())
 
-        A1, B1, C1 = pz.ShiftLeft3(A1, B1, C1)
-        A2, B2, C2 = pz.ShiftLeft3(A2, B2, C2)
+        A1, B1, C1 = PZ.ShiftLeft3(A1, B1, C1)
+        A2, B2, C2 = PZ.ShiftLeft3(A2, B2, C2)
 
         result_1 = f"Числа 1 после сдвига: {A1}, {B1}, {C1}"
         result_2 = f"Числа 2 после сдвига: {A2}, {B2}, {C2}"
@@ -100,8 +101,16 @@ def main():
     history_label = ttk.Label(root, text="История:")
     history_label.pack(pady=5)
 
-    history_text = tk.Text(root, height=10, state=tk.DISABLED)
-    history_text.pack(pady=5)
+    history_frame = ttk.Frame(root)
+    history_frame.pack(pady=5, fill='both', expand=True)
+
+    history_text = tk.Text(history_frame, height=10, state=tk.DISABLED, wrap='word')
+    history_text.pack(side='left', fill='both', expand=True)
+
+    history_scrollbar = ttk.Scrollbar(history_frame, orient='vertical', command=history_text.yview)
+    history_scrollbar.pack(side='right', fill='y')
+
+    history_text.config(yscrollcommand=history_scrollbar.set)
 
     task_5(tab_control, history_text)
     task_5_1(tab_control, history_text)
